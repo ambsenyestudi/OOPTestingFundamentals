@@ -4,7 +4,7 @@
     {
         public static string HelloWorld()
         {
-            return "Hello world Charles";
+            return "Hello world "+Person.Name;
         }
     }
 }
