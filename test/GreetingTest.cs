@@ -10,6 +10,12 @@ namespace HelloWorld.Domain.Test
             Person.Name = "Charles";
             Assert.Equal("Hello world Charles", Greeting.HelloWorld());
         }
-        
+
+        [Fact]
+        public void When_Person_Name_John_Then_Greet()
+        {
+            Person.Name = "John";
+            Assert.Equal("Hello world John", Greeting.HelloWorld());
+        }
     }
 }
