@@ -5,9 +5,11 @@ namespace HelloWorld.Domain.Test
     public class GreetingTest
     {
         [Fact]
-        public void When_Greeting_Then_Hello_World()
+        public void When_Person_Name_Charles_Then_Greet()
         {
-            Assert.Equal("Hello world", Greeting.HelloWorld());
+            Person.Name = "Charles";
+            Assert.Equal("Hello world Charles", Greeting.HelloWorld());
         }
+        
     }
 }
