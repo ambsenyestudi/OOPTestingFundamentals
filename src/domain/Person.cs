@@ -1,7 +1,7 @@
 ﻿namespace HelloWorld.Domain
 {
-    public static class Person
+    public class Person
     {
-        public static string Name { get; set; }
+        public string Name { get; set; }
     }
 }

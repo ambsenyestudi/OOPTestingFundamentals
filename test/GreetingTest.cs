@@ -5,17 +5,19 @@ namespace HelloWorld.Domain.Test
     public class GreetingTest
     {
         [Fact]
-        public void When_Person_Name_Charles_Then_Greet()
+        public void When_Default_Greeting_Hello_Charles()
         {
-            Person.Name = "Charles";
-            Assert.Equal("Hello world Charles", Greeting.HelloWorld());
+            var person = new Person { Name = "Charles" };
+            var sut = new PersonGreeter(person);
+            Assert.Equal("Hello Charles", sut.Greet());
         }
 
         [Fact]
-        public void When_Person_Name_John_Then_Greet()
+        public void When_Defined_Greeting_Then_Good_Morning_John()
         {
-            Person.Name = "John";
-            Assert.Equal("Hello world John", Greeting.HelloWorld());
+            var person = new Person { Name = "John" };
+            var sut = new PersonGreeter(person, "Good Morning");
+            Assert.Equal("Good Morning John", sut.Greet());
         }
     }
 }
