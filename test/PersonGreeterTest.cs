@@ -8,24 +8,34 @@ namespace HelloWorld.Domain.Test
         [Fact]
         public void When_Default_Greeting_Hello_Charles_And_Mary()
         {
+            //Arrange
+            var exectedGreeting = "Hello Charles and Mary";
             var peopleList = new List<Person>{
                 new Person { Name = "Charles" },
                 new Person { Name = "Mary"}
             };
             var sut = new PeopleGreeter(peopleList);
-            Assert.Equal("Hello Charles and Mary", sut.Greet());
+            //Act
+            var result = sut.Greet();
+            //Assert
+            Assert.Equal(exectedGreeting, result);
         }
 
         [Fact]
         public void When_Defined_Greeting_Then_Good_Morning_John_Mary_And_Pamela()
         {
+            //Arrange
+            var exptectedGreeting = "Good Morning John, Mary and Pamela";
             var peopleList = new List<Person>{
                 new Person { Name = "John"  },
                 new Person { Name = "Mary"},
                 new Person { Name = "Pamela"},
             };
             var sut = new PeopleGreeter(peopleList);
-            Assert.Equal("Good Morning John, Mary and Pamela", sut.Greet("Good Morning"));
+            //Act
+            var result = sut.Greet("Good Morning");
+            //Assert
+            Assert.Equal(exptectedGreeting, result);
         }
     }
 }
