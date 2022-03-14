@@ -4,20 +4,33 @@ namespace HelloWorld.Domain.Test
 {
     public class GreetingTest
     {
-        [Fact]
-        public void When_Default_Greeting_Hello_Charles()
+        [Theory]
+        [InlineData("Charles")]
+        [InlineData("Peter")]
+        [InlineData("Ralph")]
+        public void When_Default_Greeting_Then_Contains_Name(string name)
         {
-            var person = new Person { Name = "Charles" };
+            //Arrange
+            var person = new Person { Name = name };
             var sut = new PersonGreeter(person);
-            Assert.Equal("Hello Charles", sut.Greet());
+            //Act
+            var greeting = sut.Greet();
+            //Assert
+            Assert.Contains(name, greeting);
         }
 
         [Fact]
         public void When_Defined_Greeting_Then_Good_Morning_John()
         {
-            var person = new Person { Name = "John" };
+            //Arrange
+            var expectedGreeting = "Good Morning John";
+            var personName = "John";
+            var person = new Person { Name = personName };
             var sut = new PersonGreeter(person, "Good Morning");
-            Assert.Equal("Good Morning John", sut.Greet());
+            //Act 
+            var greeting = sut.Greet();
+            //Assert
+            Assert.Equal(expectedGreeting, greeting);
         }
     }
 }
