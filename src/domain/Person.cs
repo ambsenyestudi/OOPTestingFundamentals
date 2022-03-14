@@ -2,6 +2,14 @@
 {
     public class Person
     {
-        public string Name { get; set; }
+        private string _name;
+        public void SetName(string name)
+        {
+            _name = name;
+        }
+        public string GetName()
+        {
+            return _name;
+        }
     }
 }

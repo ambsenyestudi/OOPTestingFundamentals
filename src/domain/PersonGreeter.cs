@@ -16,7 +16,7 @@
         }
         public override string ToString()
         {
-            return _greeting +" "+ _person.Name;
+            return _greeting +" "+ _person.GetName();
         }
     }
 }
